@@ -1,0 +1,297 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f4f7;
+  color: #1f2430;
+  font-size: calc(16px * var(--font-scale, 1));
+}
+
+.hidden {
+  display: none !important;
+}
+
+.auth-view {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 360px;
+  background: #ffffff;
+  border: 1px solid #d5dae5;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.auth-card h1 {
+  margin: 0;
+}
+
+.logo {
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.logo-a {
+  top: 12px;
+  left: 12px;
+}
+
+.logo-b {
+  bottom: 12px;
+  right: 12px;
+}
+
+.muted {
+  color: #657087;
+  font-size: 13px;
+}
+
+.toggle-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.toggle-row button.active {
+  background: #1f4fd6;
+  color: #fff;
+}
+
+.auth-form {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.ghost-btn {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.app-view {
+  max-width: 1000px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 10px;
+}
+
+.topbar {
+  background: #fff;
+  border: 1px solid #d5dae5;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.topbar::after {
+  content: "";
+  position: absolute;
+  right: 50px;
+  top: 6px;
+  width: 34px;
+  height: 34px;
+  background-image: url("/logo.png");
+  background-size: cover;
+  opacity: 0.22;
+}
+
+.tabs {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.tab.active {
+  background: #1f4fd6;
+  color: #fff;
+}
+
+.workspace {
+  margin-top: 10px;
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid #d5dae5;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 12px;
+}
+
+.list-pane,
+.chat-pane {
+  border: 1px solid #dce1ea;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.list {
+  display: grid;
+  gap: 8px;
+}
+
+.list-item {
+  border: 1px solid #dce1ea;
+  border-radius: 8px;
+  padding: 8px;
+  background: #fafbfe;
+}
+
+.list-item.active {
+  border-color: #1f4fd6;
+  background: #eef3ff;
+}
+
+.messages {
+  border: 1px solid #dce1ea;
+  border-radius: 8px;
+  height: 360px;
+  overflow-y: auto;
+  padding: 8px;
+  display: grid;
+  gap: 8px;
+  background: #fafbfe;
+}
+
+.message {
+  padding: 8px;
+  border-radius: 8px;
+  max-width: 75%;
+  white-space: pre-wrap;
+}
+
+.message.mine {
+  margin-left: auto;
+  background: #1f4fd6;
+  color: #fff;
+}
+
+.message.theirs {
+  margin-right: auto;
+  background: #e8edf8;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+input,
+button {
+  border: 1px solid #bec6d8;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font: inherit;
+}
+
+input {
+  flex: 1;
+  min-width: 160px;
+}
+
+button {
+  background: #fff;
+  cursor: pointer;
+}
+
+.status {
+  min-height: 18px;
+  font-size: 13px;
+  color: #4b5670;
+}
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #bec6d8;
+  background: #e7ebf3;
+}
+
+.attachment {
+  border: 1px solid #dce1ea;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 6px;
+  margin-top: 6px;
+  display: block;
+  max-width: 260px;
+}
+
+.attachment img,
+.attachment video {
+  max-width: 240px;
+  border-radius: 6px;
+  display: block;
+}
+
+.setting {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+body.dark {
+  background: #13161d;
+  color: #e6ebf5;
+}
+
+body.dark .auth-card,
+body.dark .topbar,
+body.dark .panel,
+body.dark .list-item,
+body.dark .messages,
+body.dark .list-pane,
+body.dark .chat-pane {
+  background: #1b2130;
+  border-color: #39445d;
+}
+
+body.dark .message.theirs {
+  background: #2d3750;
+  color: #e6ebf5;
+}
+
+body.high-contrast {
+  filter: contrast(1.25);
+}
+
+*,
+*::before,
+*::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+@media (max-width: 780px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+}

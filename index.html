@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>haystack</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="authView" class="auth-view">
+      <img src="/logo.png" class="logo logo-a" alt="" aria-hidden="true" />
+      <img src="/logo.png" class="logo logo-b" alt="" aria-hidden="true" />
+      <div class="auth-card">
+        <h1>haystack</h1>
+        <p class="muted">En enkel arbetsyta</p>
+
+        <div class="toggle-row">
+          <button id="showLoginBtn" class="active" type="button">Logga in</button>
+          <button id="showSignupBtn" type="button">Skapa konto</button>
+        </div>
+
+        <form id="authForm" class="auth-form">
+          <input id="usernameInput" type="text" placeholder="Anvandarnamn" required />
+          <input id="passwordInput" type="password" placeholder="Losenord" required />
+          <button id="authSubmitBtn" type="submit">Logga in</button>
+        </form>
+        <button id="guestBtn" type="button" class="ghost-btn">Fortsatt som gast</button>
+
+        <p id="authStatus" class="status"></p>
+      </div>
+    </div>
+
+    <div id="appView" class="app-view hidden">
+      <header class="topbar">
+        <div>
+          <strong>haystack</strong>
+          <span id="meLabel" class="muted"></span>
+        </div>
+        <button id="logoutBtn" type="button">Logga ut</button>
+      </header>
+
+      <nav class="tabs">
+        <button data-tab="chattar" class="tab active" type="button">Chattar</button>
+        <button data-tab="vanner" class="tab" type="button">Vanner</button>
+        <button data-tab="forfragningar" class="tab" type="button">Forfragningar</button>
+        <button data-tab="global" class="tab" type="button">Globalt rum</button>
+        <button data-tab="profil" class="tab" type="button">Profil</button>
+        <button data-tab="installningar" class="tab" type="button">Installningar</button>
+      </nav>
+
+      <main class="workspace">
+        <section id="tab-chattar" class="panel">
+          <div class="split">
+            <aside class="list-pane">
+              <h3>Dina vanner</h3>
+              <div id="friendsList" class="list"></div>
+            </aside>
+            <section class="chat-pane">
+              <h3 id="chatTitle">Valj en van</h3>
+              <div id="messagesList" class="messages"></div>
+              <form id="messageForm" class="row">
+                <input id="messageInput" type="text" placeholder="Skriv ett meddelande..." />
+                <input id="fileInput" type="file" multiple />
+                <button type="submit">Skicka</button>
+              </form>
+            </section>
+          </div>
+        </section>
+
+        <section id="tab-vanner" class="panel hidden">
+          <h3>Lagg till anvandare</h3>
+          <form id="addFriendForm" class="row">
+            <input id="addFriendInput" type="text" placeholder="Anvandarnamn" />
+            <button type="submit">Skicka forfragan</button>
+          </form>
+          <p id="friendStatus" class="status"></p>
+        </section>
+
+        <section id="tab-forfragningar" class="panel hidden">
+          <h3>Inkommande forfragningar</h3>
+          <div id="requestsList" class="list"></div>
+        </section>
+
+        <section id="tab-global" class="panel hidden">
+          <h3>Globalt chattrum</h3>
+          <div id="globalMessagesList" class="messages"></div>
+          <form id="globalMessageForm" class="row">
+            <input id="globalMessageInput" type="text" placeholder="Skriv till alla..." />
+            <input id="globalFileInput" type="file" multiple />
+            <button type="submit">Skicka</button>
+          </form>
+        </section>
+
+        <section id="tab-profil" class="panel hidden">
+          <h3>Profil</h3>
+          <p id="profileName"></p>
+          <img id="avatarPreview" class="avatar" alt="Profilbild" />
+          <form id="avatarForm" class="row">
+            <input id="avatarInput" type="text" placeholder="URL till profilbild" />
+            <button type="submit">Spara profilbild</button>
+          </form>
+          <p id="profileStatus" class="status"></p>
+        </section>
+
+        <section id="tab-installningar" class="panel hidden">
+          <h3>Installningar</h3>
+          <label class="setting">
+            <input id="darkModeToggle" type="checkbox" />
+            Morkt lage
+          </label>
+          <label class="setting">
+            <input id="highContrastToggle" type="checkbox" />
+            Hog kontrast
+          </label>
+          <label class="setting">
+            Textstorlek
+            <select id="fontScaleSelect">
+              <option value="1">Normal</option>
+              <option value="1.1">Stor</option>
+              <option value="1.2">Extra stor</option>
+            </select>
+          </label>
+          <label class="setting">
+            <input id="reducedMotionToggle" type="checkbox" />
+            Minska rorelse
+          </label>
+        </section>
+      </main>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
